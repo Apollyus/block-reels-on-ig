@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  core-tests:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit testy (URLPolicy, filtry, health)
+        run: swift test
+  js-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node --check Sources/MyGramCore/Resources/filters.js
+      - run: npm ci
+      - run: npm test
+  app-build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen
+      - name: Build pro simulátor
+        run: >
+          xcodebuild build -project MyGram.xcodeproj -scheme MyGram
+          -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO

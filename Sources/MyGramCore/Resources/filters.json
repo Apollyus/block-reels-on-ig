@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "allowedHosts": ["instagram.com", "cdninstagram.com", "fbcdn.net"],
+  "homePath": "/",
+  "inboxPath": "/direct/inbox/",
+  "blockedPrefixes": ["/reels", "/explore"],
+  "allowedPrefixes": ["/explore/search"],
+  "suggestedTexts": [
+    "Suggested for you",
+    "Suggested posts",
+    "Suggested reels",
+    "Suggested Reels",
+    "Navrhováno pro vás",
+    "Navrhované pro vás",
+    "Navrhované příspěvky",
+    "Navrhované reels",
+    "Doporučeno pro vás"
+  ],
+  "groups": [
+    {
+      "name": "navigation",
+      "hide": [
+        { "selector": "a[href=\"/reels/\"]" },
+        { "selector": "a[href=\"/reels\"]" },
+        { "selector": "a[href$=\"/reels/\"]" },
+        { "selector": "a[href=\"/explore/\"]" },
+        { "selector": "a[href=\"/reels/\"]", "ancestor": "li, [role=\"listitem\"]" },
+        { "selector": "a[href=\"/explore/\"]", "ancestor": "li, [role=\"listitem\"]" }
+      ]
+    },
+    {
+      "name": "feedReels",
+      "hide": [
+        { "selector": "a[href*=\"/reel/\"]", "ancestor": "article", "skipOnContentPages": true },
+        { "selector": "a[href*=\"/reels/\"]", "ancestor": "article", "skipOnContentPages": true }
+      ]
+    },
+    {
+      "name": "suggested",
+      "hide": [
+        { "selector": "a[href^=\"/explore/people\"]" },
+        { "selector": "a[href^=\"/explore/people\"]", "ancestor": "article, section" }
+      ]
+    },
+    {
+      "name": "counts",
+      "optional": true,
+      "hide": [
+        { "selector": "a[href$=\"/liked_by/\"]" }
+      ]
+    }
+  ],
+  "health": [
+    { "name": "reelsTab", "selector": "a[href=\"/reels/\"]" },
+    { "name": "exploreTab", "selector": "a[href=\"/explore/\"]" }
+  ]
+}

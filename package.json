@@ -1,0 +1,6 @@
+{
+  "name": "mygram-filter-tests",
+  "private": true,
+  "scripts": { "test": "node scripts/test-filters-js.js" },
+  "devDependencies": { "jsdom": "^24.1.0" }
+}

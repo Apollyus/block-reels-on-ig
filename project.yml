@@ -1,0 +1,39 @@
+name: MyGram
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  MyGramCore:
+    path: .
+targets:
+  MyGram:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    dependencies:
+      - package: MyGramCore
+    info:
+      path: Config/Info.plist
+      properties:
+        CFBundleDisplayName: MyGram
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        ITSAppUsesNonExemptEncryption: false
+        CFBundleURLTypes:
+          - CFBundleURLName: com.example.mygram
+            CFBundleURLSchemes: [mygram]
+        NSCameraUsageDescription: Fotky a stories pro Instagram.
+        NSMicrophoneUsageDescription: Zvuk u videí a stories pro Instagram.
+        NSPhotoLibraryUsageDescription: Výběr fotek a videí pro příspěvky a stories.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.mygram
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM}
