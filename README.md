@@ -6,7 +6,7 @@ a navržený obsah. Feed sledovaných, stories, DM, vyhledávání a profil fung
 
 ## Instalace na vlastní iPhone (bez placení)
 
-Potřebuješ Mac s Xcode 15+.
+Potřebuješ Mac s Xcode 16+ (aktuální XcodeGen generuje projekt v jeho formátu).
 
 ```sh
 brew install xcodegen
